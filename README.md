@@ -20,6 +20,19 @@
 
 ---
 
+## ⚙️ Controls
+
+- **Creating New Todo Item**
+  > Ctrl + N
+
+- **Creating a Sub-Todo Item**
+  > Double Clicking a Todo Item OR Alt + RightArrow while keeping a Todo Item in focus.
+
+- **Navigating Back**
+  > Alt + LeftArrow
+
+---
+
 ## 🖥️ Example Use Case
 
 Imagine you have a task like:
