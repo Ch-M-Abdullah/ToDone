@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# 📝 ToDone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ToDone** is a side project, it is simply a Todo app built for Windows using Electron. It has some features that I thought I needed especially when programming. Maybe it is due to the brain rotting, but my focus has not been up to the mark lately, this is my way to help myself with that so I don't have to keep everything in mind.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔁 **Auto-Minimize on Mouse Leave**  
+  When the mouse leaves the ToDone window, it automatically shrinks to a compact floating window—keeping your desktop clutter-free.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 👆 **Restore on Hover**  
+  Hover over the minimized window, and it smoothly expands back to full size so you can pick up where you left off.
 
-- Configure the top-level `parserOptions` property like this:
+- 🧠 **Nested Sub-Todos**  
+  Double-click any Todo item to enter its detailed view. Create **unlimited layers of nested subtasks** to break down your bigger goals into manageable steps.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- 📂 **Organize with Hierarchies**  
+  Keep your workflow clean by grouping subtasks under main tasks—ideal for complex projects like bug fixes, feature development, or study plans.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+## 🖥️ Example Use Case
+
+Imagine you have a task like:
+
+> **Fix lagging bug in the frontend**
+
+Double-click it, and you'll enter its sub-todo view. Now you can add items like:
+
+- Find the function that is causing the lag
+  - Check rendering loops
+  - Inspect API response times
+- Profile the performance in dev tools
+- Optimize affected components
+
+---
+
+## 🛠 Tech Stack
+
+- **Electron** (Desktop App Framework)
+- **JavaScript / HTML / CSS**
