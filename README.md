@@ -1,6 +1,6 @@
 # 📝 ToDone
 
-**ToDone** is a side project, it is simply a Todo app built for Windows using Electron. It has some features that I thought I needed especially when programming. Maybe it is due to the brain rotting, but my focus has not been up to the mark lately, this is my way to help myself with that so I don't have to keep everything in mind.
+**ToDone** is a side project, it is simply a Todo app with a little bit of added functionality built for Windows. It has some features that I thought I needed especially when programming. Maybe it is due to the brain rotting, but my focus has not been up to the mark lately, this is my way to help myself with that so I don't have to keep everything in mind.
 
 ---
 
