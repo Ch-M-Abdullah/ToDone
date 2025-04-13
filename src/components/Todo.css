@@ -1,0 +1,78 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #363636;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+
+.delete-button {
+    max-height: 2rem;
+    margin-block: 0px;
+    margin-inline: 1%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    /* background-color: grey; */
+    background-color: rgb(255, 23, 23);
+}
+
+.trash-icon {
+    max-height: 55%;
+    padding: 0px;
+    margin: 0px;
+    transition: all ease-in-out 0.1s;
+}
+
+.delete-button:hover .trash-icon {
+    max-height: 70%;
+}
+
+.todo-checkbox {
+    margin-left: 2%;
+    transform: scale(120%);/*increasing it's size*/
+    transition: all ease-in-out 0.1s;
+}
+
+
+.todo-checkbox:hover {
+    transform: scale(150%); /*increasing it's size*/
+}
+
+.todo-checkbox:checked {
+    accent-color: #5491FC;
+}
+
+textarea {
+    font-size: medium;
+    width: 85%;
+    max-width: 90%;
+    max-height: max-content;
+    margin-left: 2%;
+    background-color: inherit;
+    border: 0px solid black;
+    resize: none;
+    field-sizing: content; /*To make it resize vertically*/
+    padding-block: 3%;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.tick-btn {
+    visibility: hidden;
+}
+
+.container:hover .tick-btn {
+    visibility: visible;
+}

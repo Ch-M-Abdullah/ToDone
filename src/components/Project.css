@@ -1,0 +1,54 @@
+.project-container {
+    width: 100%;
+    position: relative;
+    padding-block: 2%;
+    overflow: hidden;
+}
+
+.project-container:hover {
+    background-color: rgba(256, 256, 256, 0.1);
+}
+
+.project-description,
+.project-name {
+    text-align: start;
+    margin: 1%;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-container {
+    width: 1.6rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    position: absolute;
+    right: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-icon-container:hover {
+    background-color: #5492fc;
+}
+
+.delete-icon-container:hover {
+    background-color: rgb(255, 23, 23);
+}
+
+.icon {
+    width: 60%;
+    height: auto;
+    transition: all ease-in-out 0.1s;
+}
+
+.edit-icon-container:hover .icon {
+    width: 70%;
+}
+
+.delete-icon-container:hover .icon {
+    width: 85%;
+}
