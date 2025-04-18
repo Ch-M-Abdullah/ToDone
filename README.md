@@ -52,4 +52,4 @@ Double-click it, and you'll enter its sub-todo view. Now you can add items like:
 ## 🛠 Tech Stack
 
 - **Electron** (Desktop App Framework)
-- **JavaScript / HTML / CSS**
+- **React**
