@@ -20,7 +20,7 @@ db.exec(`
                 description TEXT,
                 completed INTEGER NOT NULL DEFAULT 0,
                 project_id INTEGER,
-                FOREIGN KEY (project_id) REFERENCES projects(id)
+                FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
         )`);
 db.exec(`
         CREATE TABLE IF NOT EXISTS sub_todos(
@@ -157,7 +157,9 @@ function createWindow() {
       nodeIntegration: false
     },
     alwaysOnTop: true,
-    title: "To Done"
+    title: "To Done",
+    skipTaskbar: true,
+    transparent: true
   });
   win.webContents.on("did-finish-load", () => {
     win == null ? void 0 : win.webContents.send("main-process-message", (/* @__PURE__ */ new Date()).toLocaleString());
@@ -251,12 +253,15 @@ function setIpcEvents() {
   });
   ipcMain.on("mouse-left", () => {
     shrinkWindow();
+    win == null ? void 0 : win.setResizable(false);
+    win == null ? void 0 : win.blur();
   });
   ipcMain.on("mouse-entered", () => {
     if (previousSize && previousPosition) {
       win == null ? void 0 : win.setPosition(previousPosition[0], previousPosition[1], false);
       win == null ? void 0 : win.setSize(previousSize[0], previousSize[1], false);
     }
+    win == null ? void 0 : win.setResizable(true);
   });
 }
 app.whenReady().then(async () => {
@@ -267,12 +272,12 @@ app.whenReady().then(async () => {
   }
   createWindow();
   screenWidth = screen.getPrimaryDisplay().workAreaSize["width"];
-  win == null ? void 0 : win.setPosition(screenWidth - win.getContentSize()[0], win == null ? void 0 : win.getPosition()[1], true);
+  repositionWindow();
   win == null ? void 0 : win.on("moved", () => {
-    win == null ? void 0 : win.setPosition(screenWidth - win.getContentSize()[0], win == null ? void 0 : win.getPosition()[1], true);
+    repositionWindow();
   });
   win == null ? void 0 : win.on("resized", () => {
-    win == null ? void 0 : win.setPosition(screenWidth - win.getContentSize()[0], win == null ? void 0 : win.getPosition()[1], true);
+    repositionWindow();
   });
 }).catch((err) => console.log(err));
 export {

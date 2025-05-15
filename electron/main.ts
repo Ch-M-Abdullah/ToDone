@@ -31,6 +31,8 @@ function createWindow() {
     },
     alwaysOnTop: true,
     title: "To Done",
+    skipTaskbar: true,
+    transparent: true,
   });
   // win.webContents.openDevTools();
 
@@ -83,11 +85,9 @@ function shrinkWindow() {
 
 function setIpcEvents() { //This Function sets all the events that the frontend can send to the backend. All of them are placed inside this function just for cleanliness
   ipcMain.on('create-project', (_, arg) => {
-
     const { name, description } = arg;
     query.createProject(name, description);
     console.log("Create-Project Was Successful...");
-
   });
 
   ipcMain.on('get-projects', (event) => {
@@ -157,6 +157,8 @@ function setIpcEvents() { //This Function sets all the events that the frontend 
   //Window Events
   ipcMain.on('mouse-left', () => {
     shrinkWindow();
+    win?.setResizable(false);
+    win?.blur();
   });
 
   ipcMain.on("mouse-entered", () => {
@@ -164,6 +166,7 @@ function setIpcEvents() { //This Function sets all the events that the frontend 
       win?.setPosition(previousPosition[0], previousPosition[1], false)
       win?.setSize(previousSize[0], previousSize[1], false);
     }
+    win?.setResizable(true);
   })
 }
 
@@ -171,22 +174,19 @@ function setIpcEvents() { //This Function sets all the events that the frontend 
 app.whenReady().then(async () => {
   try {
     setIpcEvents();
-
-
   } catch (error) {
     console.log("err: ", error);
   }
 
   createWindow();
 
-  screenWidth = screen.getPrimaryDisplay().workAreaSize["width"];
-
-  win?.setPosition(screenWidth - win.getContentSize()[0], win?.getPosition()[1], true)
+  screenWidth = screen.getPrimaryDisplay().workAreaSize["width"]; //Getting the size of the screen. Necessary for repositioning
+  repositionWindow(); //Moving the window to right side
 
   win?.on("moved", () => {
-    win?.setPosition(screenWidth - win.getContentSize()[0], win?.getPosition()[1], true);
+    repositionWindow(); //Moving the window to right side
   })
   win?.on("resized", () => {
-    win?.setPosition(screenWidth - win.getContentSize()[0], win?.getPosition()[1], true);
+    repositionWindow(); //Moving the window to right side
   })
 }).catch((err) => console.log(err))

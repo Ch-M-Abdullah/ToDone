@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import "./CreateProject.css"
 
 
 export default function CreateProject() {
@@ -27,8 +28,8 @@ export default function CreateProject() {
                 <br />
                 <input style={{ padding: "2%", width: "100%", marginBlock: "2%" }} placeholder="Description" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
                 <br />
-                <button onClick={onCancelBtnPress} style={{ padding: "2%", margin: "2%" }}>Cancel</button>
-                <button onClick={onSaveBtnPress} style={{ padding: "2%" }}>Save</button>
+                <button className="create-project-btn" onClick={onCancelBtnPress} style={{ padding: "2%", margin: "2%" }}>Cancel</button>
+                <button className="create-project-btn" onClick={onSaveBtnPress} style={{ padding: "2%" }}>Save</button>
             </div>
         </div>
     )

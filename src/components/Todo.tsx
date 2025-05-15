@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 // import { motion } from "framer-motion"
 import { Todo as todo } from "../pages/TodoList";
 import trashIcon from "../assets/trash.png";
@@ -99,8 +99,9 @@ export default function Todo({ id, isSubTodo, todo_id, project_id, description, 
     }
   })
 
-  const goToSubTodo = () => {
-    if (id) { //If The Current Todo has an id i.e. if the current Todo has been saved
+  const goToSubTodo = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (id) { //If The Current Todo does not have an id i.e. if the current Todo has not been saved yet
       navigate(`../subTodo/${project_id}/${id}/${description}`, { relative: "route" });
     }
   }

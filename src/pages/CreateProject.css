@@ -1,0 +1,8 @@
+.create-project-btn {
+    border-radius: 15%/20%;
+    border: none;
+}
+
+.create-project-btn:hover {
+    background-color: #5492fc;
+}
